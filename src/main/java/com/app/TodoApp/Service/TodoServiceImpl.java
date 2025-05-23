@@ -1,9 +1,12 @@
 package com.app.TodoApp.Service;
 
+import com.app.TodoApp.Models.Task;
 import com.app.TodoApp.Repository.TodoRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @Slf4j
@@ -32,5 +35,12 @@ public class TodoServiceImpl implements  TodoService{
     @Override
     public String toggleTask(Long id) {
         return "";
+    }
+
+    @Override
+    public List<Task> getAllTasks() {
+        log.info("Invoked getAllTasks in service");
+
+        return todoRepository.getAllTasks();
     }
 }

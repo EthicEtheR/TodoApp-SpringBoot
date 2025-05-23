@@ -1,12 +1,12 @@
 package com.app.TodoApp.Controller;
 
+import com.app.TodoApp.Models.Task;
 import com.app.TodoApp.Service.TodoService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/todo")
@@ -22,4 +22,10 @@ public class TodoController {
 
         return"Task Created";
     }
+    @GetMapping("/getAll")
+    public List<Task> getAllTasks(){
+        log.info("Invoked getAllTask in controller");
+        return todoService.getAllTasks();
+    }
+
 }

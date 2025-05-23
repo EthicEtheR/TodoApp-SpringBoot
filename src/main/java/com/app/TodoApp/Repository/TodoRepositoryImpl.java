@@ -5,6 +5,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 @Slf4j
 @RequiredArgsConstructor
@@ -19,6 +21,14 @@ public class TodoRepositoryImpl implements TodoRepository{
 
         taskRepository.save(task1);
 
+
+    }
+
+    @Override
+    public List<Task> getAllTasks() {
+        log.info("Getting all task from DB");
+        
+       return  taskRepository.findAll();
 
     }
 }
