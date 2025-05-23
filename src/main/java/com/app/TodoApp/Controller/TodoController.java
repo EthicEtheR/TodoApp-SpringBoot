@@ -28,4 +28,32 @@ public class TodoController {
         return todoService.getAllTasks();
     }
 
+    @PostMapping("/{id}/show")
+    public Task showTaskById(@PathVariable Long id){
+        log.info("invoked showTask by id :{}",id);
+
+        return todoService.showTask(id);
+    }
+
+    @GetMapping("/{id}/toggle")
+    public String toggleTask(@PathVariable Long id){
+        log.info("Invoked toggleTask in controller using id :{}",id);
+        todoService.toggleTask(id);
+        return "Done";
+    }
+
+    @GetMapping("/{id}/delete")
+    public String deleteTask(@PathVariable Long id){
+        log.info("Invoked deleteTask in controller using id :{}",id);
+        todoService.deleteTask(id);
+        return "Successfully deleted ";
+    }
+    @PostMapping("/showByList")
+    public List<Task> showTaskList(@RequestBody List<Long> list){
+        log.info("Invoked showTaskList in controller using List of id :{}",list);
+
+        return  todoService.showTaskList(list);
+    }
+
+
 }

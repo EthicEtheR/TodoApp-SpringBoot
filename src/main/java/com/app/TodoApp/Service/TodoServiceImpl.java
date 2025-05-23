@@ -23,17 +23,26 @@ public class TodoServiceImpl implements  TodoService{
     }
 
     @Override
-    public String showTask(Long id) {
-        return "";
+    public Task showTask(Long id) {
+        log.info("Invoked show Tasks in service ");
+
+        return todoRepository.showTaskById(id);
     }
 
     @Override
     public String deleteTask(Long id) {
+        log.info("Invoked deleteTask in service ");
+        todoRepository.deleteTaskById(id);
+
+
         return "";
     }
 
     @Override
     public String toggleTask(Long id) {
+        log.info("Invoked toggleTask in service ");
+        todoRepository.toggleTaskById(id);
+
         return "";
     }
 
@@ -42,5 +51,12 @@ public class TodoServiceImpl implements  TodoService{
         log.info("Invoked getAllTasks in service");
 
         return todoRepository.getAllTasks();
+    }
+
+    @Override
+    public List<Task> showTaskList(List<Long> list) {
+        log.info("Invoked showTaskList in service ");
+
+        return todoRepository.showTaskList(list);
     }
 }

@@ -8,4 +8,12 @@ public interface TodoRepository {
     void createTask(String task);
 
     List<Task> getAllTasks();
+
+    Task showTaskById(Long id);
+
+    void toggleTaskById(Long id);
+
+    void deleteTaskById(Long id);
+
+    List<Task> showTaskList(List<Long> list);
 }

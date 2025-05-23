@@ -6,9 +6,11 @@ import java.util.List;
 
 public interface TodoService {
     String createTask(String task);
-    String showTask(Long id);
+    Task showTask(Long id);
     String deleteTask(Long id);
     String toggleTask(Long id);
 
     List<Task> getAllTasks();
+
+    List<Task> showTaskList(List<Long> list);
 }
