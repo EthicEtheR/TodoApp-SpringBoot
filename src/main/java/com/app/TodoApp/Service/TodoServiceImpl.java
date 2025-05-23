@@ -22,12 +22,7 @@ public class TodoServiceImpl implements  TodoService{
         return "";
     }
 
-    @Override
-    public Task showTask(Long id) {
-        log.info("Invoked show Tasks in service ");
 
-        return todoRepository.showTaskById(id);
-    }
 
     @Override
     public String deleteTask(Long id) {
@@ -58,5 +53,12 @@ public class TodoServiceImpl implements  TodoService{
         log.info("Invoked showTaskList in service ");
 
         return todoRepository.showTaskList(list);
+    }
+
+    @Override
+    public Task updateTask(Long id, String title) {
+        log.info("Invoked uodateTask in Service");
+
+        return todoRepository.updateTask(id,title);
     }
 }

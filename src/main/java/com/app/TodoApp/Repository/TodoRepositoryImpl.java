@@ -34,12 +34,7 @@ public class TodoRepositoryImpl implements TodoRepository{
 
     }
 
-    @Override
-    public Task showTaskById(Long id) {
-        log.info("Getting a Task by its Id from DB");
-      return taskRepository.findById(id).get();
 
-    }
 
     @Override
     public void toggleTaskById(Long id) {
@@ -75,5 +70,14 @@ public class TodoRepositoryImpl implements TodoRepository{
             tasks.add(taskRepository.findById(i).get());
         }
         return tasks;
+    }
+
+    @Override
+    public Task updateTask(Long id, String title) {
+        log.info("Going to update title in DB ");
+        Task task=taskRepository.findById(id).get();
+        task.setTitle(title);
+        taskRepository.save(task);
+        return task;
     }
 }

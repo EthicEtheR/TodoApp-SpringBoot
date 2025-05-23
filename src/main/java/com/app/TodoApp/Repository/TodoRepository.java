@@ -9,11 +9,13 @@ public interface TodoRepository {
 
     List<Task> getAllTasks();
 
-    Task showTaskById(Long id);
+
 
     void toggleTaskById(Long id);
 
     void deleteTaskById(Long id);
 
     List<Task> showTaskList(List<Long> list);
+
+    Task updateTask(Long id, String title);
 }
